@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sun, Moon, Menu, X, Dumbbell, Users, Calendar, CreditCard, BarChart2 } from "lucide-react";
+import { Sun, Moon, Menu, X, Dumbbell, Users, Calendar, CreditCard, BarChart2, CheckSquare } from "lucide-react";
 import Home from "./pages/Home";
+import Todo from "./pages/Todo";
 import NotFound from "./pages/NotFound";
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
 
   const navItems = [
     { name: "Dashboard", icon: <BarChart2 size={20} />, path: "/" },
+    { name: "Todo List", icon: <CheckSquare size={20} />, path: "/todo" },
     { name: "Equipment", icon: <Dumbbell size={20} />, path: "/equipment" },
     { name: "Members", icon: <Users size={20} />, path: "/members" },
     { name: "Attendance", icon: <Calendar size={20} />, path: "/attendance" },
@@ -139,6 +141,7 @@ function App() {
           <AnimatePresence mode="wait">
             <Routes location={location} key={location.pathname}>
               <Route path="/" element={<Home />} />
+              <Route path="/todo" element={<Todo />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </AnimatePresence>
